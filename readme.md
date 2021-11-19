@@ -37,9 +37,9 @@ Buscador / red social de comics/manga para realizar un seguimiento de issues, ve
 
 ### BONUS 
 
-- Barra lateral de amigos (compartes gustos/comic que lees actualmente)
-- Envío de mensajes/correo interno
-- Crear Comics que no estén en la API (con name, desc, img REQUIRED)
+- Recomendaciones
+- Nivel
+- Rol de Moderador
 
 
 ### APIs Info
