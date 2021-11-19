@@ -4,7 +4,7 @@
 
 # Puntos principales:
 - Base de datos 
-- API Comic Vine (opcionalmente MangaDex)
+- Marvel API
 - Panel de Usuario con: 
     - Nivel Frik (basado en puntos que ganas por completar/leer comics)
     - Añadir comic/serie leído para seguimiento
@@ -22,9 +22,11 @@
     - MOD -> Revisa las reviews y valida antes del posteo
 
 # INFO:
-- ComicVine API
+- Marvel API
     - JSON
     - API Key unica tras registro
+    - 3000 request/day
+    - md5 digest para generar un hash????
 
 # BONUS:
 - Barra lateral de amigos (compartes gustos/comic que lees actualmente)
@@ -32,4 +34,5 @@
 - Crear Comics que no estén en la API (con name, desc, img REQUIRED)
 
 
-#
+# API Info
+- Endpoint base: http(s)://gateway.marvel.com/
