@@ -23,6 +23,7 @@ Buscador / red social de comics/manga para realizar un seguimiento de issues, ve
     - MOD -> Revisa las reviews y valida antes del posteo
 
 ## Project Info
+
 - ComicVine API:
     - JSON
     - API Key
@@ -35,13 +36,16 @@ Buscador / red social de comics/manga para realizar un seguimiento de issues, ve
     - md5 digest para generar un hash
 
 ### BONUS 
+
 - Barra lateral de amigos (compartes gustos/comic que lees actualmente)
 - Envío de mensajes/correo interno
 - Crear Comics que no estén en la API (con name, desc, img REQUIRED)
 
 
 ### APIs Info
-- ComicVine API base-endpoint: https://comicvine.gamespot.com/api
+
+- ComicVine API info and base-endpoint: https://comicvine.gamespot.com/api
+- Marvel API doc: https://developer.marvel.com/documentation/generalinfo
 - Marvel base-endpoint: http://gateway.marvel.com/v1/public
 
 ## Comenzando 🚀
