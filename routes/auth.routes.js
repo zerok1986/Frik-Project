@@ -53,14 +53,16 @@ router.post('/iniciar-sesion', (req, res) => {
       }
 
       req.session.currentUser = user
-      res.redirect('/')
+      res.render('index', { loginMsg: 'Te has logueado correctamente' })
     })
     .catch((err) => console.log(err))
 })
 
 // Logout
 router.get('/cerrar-sesion', (req, res) => {
-  req.session.destroy(() => res.redirect('/'))
+  req.session.destroy(() =>
+    res.render('index', { logoutMsg: 'Te has deslogueado correctamente' })
+  )
 })
 
 module.exports = router

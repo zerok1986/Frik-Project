@@ -24,6 +24,17 @@ h3 {
   animation: showFromBottom 6s forwards;
 }
 
+#logoutMessage {
+  background-color: rgb(142, 255, 119);
+  width: 400px;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  padding: 5px;
+  text-align: center;
+  animation: showFromBottom 6s forwards;
+}
+
 @keyframes showFromBottom {
   0% {
     bottom: -50px;
