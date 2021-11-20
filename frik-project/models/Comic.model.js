@@ -1,6 +1,5 @@
 const { Schema, model } = require('mongoose')
 
-// TODO: Please make sure you edit the user model to whatever makes sense in this case
 const comicSchema = new Schema(
   {
     name: {
@@ -11,7 +10,10 @@ const comicSchema = new Schema(
     issues: Number,
     characters: [String],
     comicImg: String,
-    review: [{ type: Schema.Types.ObjectId, ref: 'Review' }]
+    review: [{ type: Schema.Types.ObjectId, ref: 'Review' }],
+  },
+  {
+    timestamps: true,
   }
 )
 
