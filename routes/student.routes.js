@@ -4,7 +4,7 @@ const User = require('../models/User.model')
 const {
   isLoggedIn,
   checkRoles,
-  checkIfCurrUserOrPM,
+  checkIfCurrUserOrAdmin,
 } = require('./../middlewares')
 
 router.get('/', isLoggedIn, (req, res, next) => {
@@ -44,8 +44,8 @@ router.post('/:id/delete', isLoggedIn, checkRoles('PM'), (req, res, next) => {
 router.get(
   '/:id/edit',
   isLoggedIn,
-  checkRoles('PM', 'STUDENT'),
-  checkIfCurrUserOrPM,
+  checkRoles('ADMIN'),
+  checkIfCurrUserOrAdmin,
   (req, res, next) => {
     const { id } = req.params
 
@@ -65,8 +65,8 @@ router.get(
 router.post(
   '/:id/edit',
   isLoggedIn,
-  checkRoles('PM', 'STUDENT'),
-  checkIfCurrUserOrPM,
+  checkRoles('ADMIN'),
+  checkIfCurrUserOrAdmin,
   (req, res, next) => {
     const { id } = req.params
     const { username, name, description, profileImg, role } = req.body

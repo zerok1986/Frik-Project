@@ -19,10 +19,10 @@ module.exports = {
           })
     },
 
-  checkIfCurrUserOrPM: (req, res, next) => {
+  checkIfCurrUserOrAdmin: (req, res, next) => {
     if (
       req.session.currentUser._id === req.params.id ||
-      req.session.currentUser.role === 'PM'
+      req.session.currentUser.role === 'ADMIN'
     ) {
       next()
     } else {
