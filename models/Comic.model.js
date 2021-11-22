@@ -10,7 +10,7 @@ const comicSchema = new Schema(
     issues: Number,
     characters: [String],
     comicImg: String,
-    review: [{ type: Schema.Types.ObjectId, ref: 'Review' }],
+    isRead: Boolean,
   },
   {
     timestamps: true,

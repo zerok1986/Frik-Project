@@ -8,7 +8,8 @@ const reviewSchema = new Schema(
     },
     description: String,
     rating: Number,
-    owner: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    owner: { type: Schema.Types.ObjectId, ref: 'User' },
+    comic: { type: Schema.Types.ObjectId, ref: 'Comic' },
   },
   {
     timestamps: true,
