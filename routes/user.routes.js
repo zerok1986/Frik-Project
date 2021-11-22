@@ -1,15 +1,15 @@
 const router = require('express').Router()
-const { checkMongoID, isPM } = require('../utils')
+const { checkMongoID, isAdmin } = require('../utils')
 const User = require('../models/User.model')
 const {
   isLoggedIn,
   checkRoles,
   checkIfCurrUserOrAdmin,
-} = require('./../middlewares')
+} = require('../middlewares')
 
 router.get('/', isLoggedIn, (req, res, next) => {
   User.find()
-    .then((users) => res.render('students/student-list', { users }))
+    .then((users) => res.render('users/user-list', { users }))
     .catch((err) => console.error(err))
 })
 
@@ -17,45 +17,50 @@ router.get('/:id', isLoggedIn, (req, res, next) => {
   const { id } = req.params
 
   if (!checkMongoID(id)) {
-    res.render('student/student-details', {
-      errorMessage: 'This student does not exist in the DB',
+    res.render('users/user-details', {
+      errorMessage: 'Este usuario no existe en la BBDD',
     })
   }
 
   User.findById(id)
     .then((user) => {
-      res.render('students/student-details', {
+      res.render('users/user-details', {
         user,
-        isPM: isPM(req.session.currentUser),
-        isCurrStudent: req.session.currentUser._id === id,
+        isAdmin: isAdmin(req.session.currentUser),
+        isCurrUser: req.session.currentUser._id === id,
       })
     })
     .catch((err) => console.error(err))
 })
 
-router.post('/:id/delete', isLoggedIn, checkRoles('PM'), (req, res, next) => {
-  const { id } = req.params
+router.post(
+  '/:id/delete',
+  isLoggedIn,
+  checkRoles('ADMIN'),
+  (req, res, next) => {
+    const { id } = req.params
 
-  User.findByIdAndRemove(id)
-    .then(() => res.redirect('/students'))
-    .catch((err) => console.error(err))
-})
+    User.findByIdAndRemove(id)
+      .then(() => res.redirect('/users'))
+      .catch((err) => console.error(err))
+  }
+)
 
 router.get(
   '/:id/edit',
   isLoggedIn,
-  checkRoles('ADMIN'),
+  checkRoles('USER', 'ADMIN'),
   checkIfCurrUserOrAdmin,
   (req, res, next) => {
     const { id } = req.params
 
     User.findById(id)
       .select({ password: 0 })
-      .then((student) =>
-        res.render('students/edit-student', {
-          student,
+      .then((user) =>
+        res.render('users/edit-user', {
+          user,
           id,
-          isPM: isPM(req.session.currentUser),
+          isAdmin: isAdmin(req.session.currentUser),
         })
       )
       .catch((err) => console.log(err))
@@ -65,7 +70,7 @@ router.get(
 router.post(
   '/:id/edit',
   isLoggedIn,
-  checkRoles('ADMIN'),
+  checkRoles('USER', 'ADMIN'),
   checkIfCurrUserOrAdmin,
   (req, res, next) => {
     const { id } = req.params
@@ -82,7 +87,7 @@ router.post(
       },
       { new: true }
     )
-      .then((user) => res.redirect(`/students/${user._id}`))
+      .then((user) => res.redirect(`/users/${user._id}`))
       .catch((err) => console.error(err))
   }
 )
