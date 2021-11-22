@@ -25,24 +25,22 @@ Buscador / red social de comics/manga para realizar un seguimiento de issues, ve
 
 ## Endpoints
 
-| Method          | Path                 | Description                                          |
-| --------------- | -------------------- | ---------------------------------------------------- |
-| get             | /                    | Muestra el index                                     |
-| get             | /users               | Muestra la lista de usuarios                         |
-| get             | /users/new           | Muestra formulario para crear un usuario             |
-| post            | /users/new           | Guarda en la BBDD un usuario                         |
-| get             | /users/edit?id=xxx   | Editar usuario (Admin y propio usuario)              |
-| post            | /users/edit?id=xxx   | Edita en la BBDD el usuario                          |
-| post (o delete) | /users/delete?id=xxx | Borra usuario (Admin y propio usuario)               |
-| get             | /users/:id           | Muestra los detalles de un usuario                   |
-| get             | /auth/login          | Muestra formulario login                             |
-| post            | /auth/login          | Envía formulario de login                            |
-| get             | /auth/signup         | Muestra formulario de signup                         |
-| post            | /auth/signup         | Envía formulario de signup                           |
-| get             | /auth/logout         | Cierra sesion usuario                                |
-| get             | /comics              | Muestra resultados de la busqueda                    |
-| get             | /comics/:id          | Muestra vista de detalles del comic                  |
-| post            | /comics/:id          | Guarda el comic en el Array de comics de ese usuario |
+| Method | Path              | Description                                          |
+| ------ | ----------------- | ---------------------------------------------------- |
+| get    | /                 | Muestra el index                                     |
+| get    | /users            | Muestra la lista de usuarios                         |
+| get    | /users/edit/:id   | Editar usuario (Admin y propio usuario)              |
+| post   | /users/edit/:id   | Edita en la BBDD el usuario                          |
+| get    | /users/delete/:id | Borra usuario (Admin y propio usuario)               |
+| get    | /users/:id        | Muestra los detalles de un usuario                   |
+| get    | /auth/login       | Muestra formulario login                             |
+| post   | /auth/login       | Envía formulario de login                            |
+| get    | /auth/signup      | Muestra formulario de signup                         |
+| post   | /auth/signup      | Guarda en la BBDD un usuario                         |
+| get    | /auth/logout      | Cierra sesion usuario                                |
+| get    | /comics           | Muestra resultados de la busqueda                    |
+| get    | /comics/:id       | Muestra vista de detalles del comic                  |
+| post   | /comics/:id       | Guarda el comic en el Array de comics de ese usuario |
 
 ## Project Info
 

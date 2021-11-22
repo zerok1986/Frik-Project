@@ -1,11 +1,11 @@
 <main class="container">
-    <h2>Students List</h2>
+    <h2>Lista de Usuarios</h2>
 
     <ul>
         {{#each users}}
         <li>
             {{username}}
-            <a href="/students/{{id}}">View student profile</a>
+            <a href="/users/{{id}}">Ver perfil de usuario</a>
         </li>
         {{/each}}
     </ul>

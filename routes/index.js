@@ -7,7 +7,7 @@ module.exports = (app) => {
   const authRoutes = require('./auth.routes')
   app.use('/', authRoutes)
 
-  // Student routes
-  const studentRoutes = require('./student.routes')
-  app.use('/students', studentRoutes)
+  // User routes
+  const userRoutes = require('./user.routes')
+  app.use('/users', userRoutes)
 }

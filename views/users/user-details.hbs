@@ -1,8 +1,8 @@
 <main class="container">
-    <h2>{{user.username}} Student Details</h2>
+    <h2>{{user.username}} User Details</h2>
 
-    {{#if isCurrStudent}}
-    <a href="/students/{{user.id}}/edit">Edit my profile</a>
+    {{#if isCurrUser}}
+    <a href="/users/{{user.id}}/edit">Edit my profile</a>
     {{/if}}
 
     <img src={{user.profileImg}}>
@@ -12,11 +12,11 @@
     <p>Description: {{user.description}}</p>
     <p>Created Date: {{user.createdAt}}</p>
 
-    {{#if isPM}}
+    {{#if isAdmin}}
     <div>
-        <a href="/students/{{user.id}}/edit">Edit</a>
+        <a href="/users/{{user.id}}/edit">Edit</a>
         
-        <form action="/students/{{user.id}}/delete" method="POST">
+        <form action="/users/{{user.id}}/delete" method="POST">
             <button type="submit">Delete</button>
         </form>
     </div>
