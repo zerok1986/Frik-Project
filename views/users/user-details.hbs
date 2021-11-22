@@ -1,16 +1,20 @@
 <main class="container">
-    <h2>{{user.username}} User Details</h2>
+    <h2>{{user.username}} - Detalles de Usuario</h2>
+    <hr>
 
     {{#if isCurrUser}}
-    <a href="/users/{{user.id}}/edit">Edit my profile</a>
+    <a href="/users/{{user.id}}/edit">editar mi perfil</a>
     {{/if}}
 
+    <p>Username: {{user.username}}</p>
+    <p>Nombre: {{user.name}}</p>
+    <p>Bio / Descripción: {{user.description}}</p>
     <img src={{user.profileImg}}>
-
-    <p>Name: {{user.name}}</p>
-    <p>Role: {{user.role}}</p>
-    <p>Description: {{user.description}}</p>
-    <p>Created Date: {{user.createdAt}}</p>
+    <p>Tipo de Usuario: {{user.role}}</p>
+    <p>Comics en seguimiento: {{user.comics}}</p>
+    <p>Amigos en la plataforma: {{user.friends}}</p>
+    <hr>
+    <p>Fecha de creación del usuario: {{user.createdAt}}</p>
 
     {{#if isAdmin}}
     <div>

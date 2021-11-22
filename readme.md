@@ -29,10 +29,10 @@ Buscador / red social de comics/manga para realizar un seguimiento de issues, ve
 | ------ | ----------------- | ---------------------------------------------------- |
 | get    | /                 | Muestra el index                                     |
 | get    | /users            | Muestra la lista de usuarios                         |
-| get    | /users/edit/:id   | Editar usuario (Admin y propio usuario)              |
-| post   | /users/edit/:id   | Edita en la BBDD el usuario                          |
-| get    | /users/delete/:id | Borra usuario (Admin y propio usuario)               |
 | get    | /users/:id        | Muestra los detalles de un usuario                   |
+| get    | /users/:id/edit   | Editar usuario (Admin y propio usuario)              |
+| post   | /users/:id/edit   | Edita en la BBDD el usuario                          |
+| get    | /users/:id/delete | Borra usuario (Admin y propio usuario)               |
 | get    | /auth/login       | Muestra formulario login                             |
 | post   | /auth/login       | Envía formulario de login                            |
 | get    | /auth/signup      | Muestra formulario de signup                         |

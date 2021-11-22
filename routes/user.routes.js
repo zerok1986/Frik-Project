@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { checkMongoID, isAdmin } = require('../utils')
+const { checkMongoID, isAdmin, isCurrUser } = require('../utils')
 const User = require('../models/User.model')
 const {
   isLoggedIn,
@@ -27,7 +27,7 @@ router.get('/:id', isLoggedIn, (req, res, next) => {
       res.render('users/user-details', {
         user,
         isAdmin: isAdmin(req.session.currentUser),
-        isCurrUser: req.session.currentUser._id === id,
+        isCurrUser: isCurrUser(req.session.currentUser, id),
       })
     })
     .catch((err) => console.error(err))
