@@ -1,3 +1,4 @@
+const axios = require("axios")
 // ℹ️ Gets access to environment variables/settings
 // https://www.npmjs.com/package/dotenv
 require("dotenv/config");
@@ -14,10 +15,9 @@ const express = require("express");
 const hbs = require("hbs");
 
 const app = express();
-
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
-require('./config/session.config')(app)
 require("./config")(app);
+require('./config/session.config')(app)
 
 const projectName = "frik";
 const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
