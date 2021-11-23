@@ -8,9 +8,12 @@ const comicSchema = new Schema(
     },
     description: String,
     issues: Number,
-    characters: [String],
+    publisher: String,
     comicImg: String,
-    isRead: Boolean,
+    isRead: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,

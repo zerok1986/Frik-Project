@@ -1,4 +1,6 @@
 const { default: axios } = require('axios')
+const User = require('../models/User.model')
+const Comic = require('../models/Comic.model')
 const {
   isLoggedIn,
   checkRoles,
@@ -30,6 +32,24 @@ router.get('/search/:id', isLoggedIn, (req, res) => {
       console.log(comic)
       res.render('comics/comic-details', { comic })
     })
+    .catch((err) => console.log(err))
+})
+
+router.post('/add-comic', (req, res) => {
+  const id = req.session.currentUser._id
+  const newComic = req.body
+
+  console.log(newComic)
+
+  Comic.create(newComic)
+    .then((comic) =>
+      User.findByIdAndUpdate(
+        id,
+        { $push: { comics: comic._id } },
+        { new: true }
+      )
+    )
+    .then(() => res.json('Todo OK'))
     .catch((err) => console.log(err))
 })
 
