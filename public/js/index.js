@@ -11,7 +11,6 @@ window.addEventListener('load', () => {
   document.getElementById('search')?.addEventListener('click', function (event) {
     
     // event.preventDefault()
-    console.log("haciendo click")
     const query = document.querySelector('.operation input').value
     loadComicsFromAPI(query)
   });
