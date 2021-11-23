@@ -22,11 +22,11 @@ function loadComicsFromAPI(query) {
       res.data?.forEach((comic) => {
         comicsInfo += `
             <li class="comic-info">
-                <a href="/comics/${comic.id}">
+                <a href="/api/search/${comic.id}">
                   <img src="${comic.image.icon_url}" alt="Comic Image">
                   <span class="name">${comic.name}</span>
                 </a>
-                <div class="start-year">${comic.start_year}</div>
+                <span class="start-year">${comic.start_year}</span>
                 <span class="count-of-issues">Issues: ${comic.count_of_issues}</div>
                 <span class="publisher-name">Publisher: ${comic.publisher.name}</span>
             </li>`
