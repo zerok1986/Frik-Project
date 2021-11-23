@@ -22,7 +22,7 @@ function loadComicsFromAPI(query) {
       res.data?.forEach((comic) => {
         comicsInfo += `
             <li class="comic-info">
-                <a href="/comics/${comic.id}">
+                <a href="/api/search/${comic.id}">
                   <img src="${comic.image.icon_url}" alt="Comic Image">
                   <span class="name">${comic.name}</span>
                 </a>
