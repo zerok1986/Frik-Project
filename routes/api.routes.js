@@ -29,7 +29,6 @@ router.get('/search/:id', isLoggedIn, (req, res) => {
       `https://comicvine.gamespot.com/api/volume/4050-${id}/?api_key=${API_KEY}&format=json`
     )
     .then((comic) => {
-      console.log(comic)
       res.render('comics/comic-details', { comic })
     })
     .catch((err) => console.log(err))
