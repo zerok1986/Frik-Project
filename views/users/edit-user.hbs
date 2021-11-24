@@ -1,6 +1,6 @@
 <main>
     <article>
-        <h2>Editar Perfil de Usuario</h2>
+        <h2>Edit User</h2>
 
         <form action="/users/{{user.id}}/edit" method="POST">
             <aside>
@@ -9,17 +9,17 @@
             </aside>
 
             <aside>
-                <label for="user-name">Nombre</label>
+                <label for="user-name">Name</label>
                 <input type="text" , name="name" id="user-name" value="{{user.name}}">
             </aside>
 
             <aside>
-                <label for="user-description">Descripción</label>
+                <label for="user-description">Description</label>
                 <input type="text" , name="description" id="user-description" value="{{user.description}}">
             </aside>
 
             <aside>
-                <label for="user-image">Imagen de Perfil</label>
+                <label for="user-image">Profile Image</label>
                 <input type="text" , name="profileImg" id="user-image" value="{{user.profileImg}}">
             </aside>
 

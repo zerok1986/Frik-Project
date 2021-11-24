@@ -1,9 +1,9 @@
 <main class="container">
-    <h2>{{user.username}} - Detalles de Usuario</h2>
+    <h2>{{user.username}} - User Details</h2>
     <hr>
 
     {{#if isCurrUser}}
-    <a href="/users/{{user.id}}/edit">editar mi perfil</a>
+    <a href="/users/{{user.id}}/edit">Edit Profile</a>
     {{/if}}
 
     {{#unless isCurrUser}}
@@ -13,20 +13,20 @@
     {{/unless}}
 
     <p>Username: {{user.username}}</p>
-    <p>Nombre: {{user.name}}</p>
-    <p>Bio / Descripción: {{user.description}}</p>
+    <p>Name: {{user.name}}</p>
+    <p>Bio / Description: {{user.description}}</p>
     <img src={{user.profileImg}}>
-    <p>Tipo de Usuario: {{user.role}}</p>
+    <p>Role: {{user.role}}</p>
     <ul>
-        Comics en seguimiento: 
+        Favorite Comics: 
     {{#each user.comics}}
         <li>
-            {{name}} 
+            <img src="{{comicImg}}" alt="Image"> {{name}} ({{issues}} issues) {{publisher}}
         </li>
     {{/each}}
     </ul>
     <ul>
-        Amigos en la plataforma: 
+        <p>Friends: </p>
     {{#each user.friends}}
         <li>
             {{username}} - {{name}}
@@ -34,7 +34,7 @@
     {{/each}}
     </ul>
     <hr>
-    <p>Fecha de creación del usuario: {{user.createdAt}}</p>
+    <p>User sign up date: {{user.createdAt}}</p>
 
     {{#if isAdmin}}
     <div>
@@ -46,5 +46,5 @@
     </div>
     {{/if}}
 
-    <a href="/">Volver a la Home</a>
+    <a href="/">Back to Homepage</a>
 </main>
