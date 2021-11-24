@@ -31,7 +31,6 @@ router.get('/search/:id', isLoggedIn, (req, res) => {
       `https://comicvine.gamespot.com/api/volume/4050-${id}/?api_key=${API_KEY}&format=json`
     )
     .then((comic) => {
-
       // const isFavorite = false
       res.render('comics/comic-details', { comic })
     })
@@ -40,22 +39,21 @@ router.get('/search/:id', isLoggedIn, (req, res) => {
 
 //Add comic to user profile in details page
 router.post('/search/:id', isLoggedIn, (req, res) => {
-  const {id} = req.params
+  const { id } = req.params
   const userId = req.session.currentUser._id
-  
+
   User.findById(userId)
     .populate('comics')
-    .then(user => {
-      if(user.comics.some(el => el.comicImg === req.body.comicImg)) {
+    .then((user) => {
+      if (user.comics.some((el) => el.comicImg === req.body.comicImg)) {
         axios
           .get(
             `https://comicvine.gamespot.com/api/volume/4050-${id}/?api_key=${API_KEY}&format=json`
           )
           .then((comic) => {
-
             res.render('comics/comic-details', {
               comic,
-              errorMsg: "Comic already on your list"
+              errorMsg: 'Comic already on your list',
             })
           })
           .catch((err) => console.log(err))
@@ -73,16 +71,18 @@ router.post('/search/:id', isLoggedIn, (req, res) => {
                   { new: true }
                 )
               )
-              .then(() => res.render('comics/comic-details', {
-                comic,
-                infoMsg: "Comic added successfully to your list"
-              }))
-              .catch(err => console.log(err))
+              .then(() =>
+                res.render('comics/comic-details', {
+                  comic,
+                  infoMsg: 'Comic added successfully to your list',
+                })
+              )
+              .catch((err) => console.log(err))
           })
           .catch((err) => console.log(err))
       }
     })
-    .catch(err => console.log(err))
+    .catch((err) => console.log(err))
 })
 
 //Add comic to user profile in comic list
@@ -92,12 +92,12 @@ router.post('/add-comic', (req, res) => {
 
   User.findById(req.session.currentUser._id)
     .populate('comics')
-    .then(user => {
-      if(user.comics.some(el => el.comicImg === newComic.comicImg)) {
+    .then((user) => {
+      if (user.comics.some((el) => el.comicImg === newComic.comicImg)) {
         res.json('Error')
-        return;
+        return
       }
-    
+
       Comic.create(newComic)
         .then((comic) =>
           User.findByIdAndUpdate(
@@ -108,7 +108,6 @@ router.post('/add-comic', (req, res) => {
         )
         .then(() => res.json('OK'))
         .catch((err) => console.log(err))
-    
     })
 })
 

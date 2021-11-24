@@ -1,5 +1,3 @@
-const { default: axios } = require('axios')
-
 const comicsAPI = new APIHandler()
 const comicsContainer = document.querySelector('.comics-container')
 const searchVolumes = document.getElementById('search')
@@ -12,8 +10,6 @@ window.addEventListener('load', () => {
       const query = document.querySelector('.operation input').value
       loadComicsFromAPI(query)
     })
-
-    
 })
 
 function loadComicsFromAPI(query) {
@@ -62,13 +58,14 @@ function loadComicsFromAPI(query) {
 
           axios
             .post('/api/add-comic', newComic)
-            .then(response => {
-              console.log(response);
-              if(response.data === 'OK')
+            .then((response) => {
+              console.log(response)
+              if (response.data === 'OK')
                 el.querySelector('#add-comic').style.backgroundColor = '#7CFC00'
               else {
                 el.querySelector('#add-comic').style.backgroundColor = 'red'
-                el.querySelector('#add-comic').innerText = 'This comic is already in your favorites'
+                el.querySelector('#add-comic').innerText =
+                  'This comic is already in your favorites'
               }
               // el.querySelector('#add-comic').disabled = true
             })
