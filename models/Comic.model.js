@@ -2,10 +2,7 @@ const { Schema, model } = require('mongoose')
 
 const comicSchema = new Schema(
   {
-    name: {
-      type: String,
-      unique: true,
-    },
+    name: String,
     description: String,
     issues: Number,
     publisher: String,

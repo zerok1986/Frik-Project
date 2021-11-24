@@ -10,6 +10,8 @@ window.addEventListener('load', () => {
       const query = document.querySelector('.operation input').value
       loadComicsFromAPI(query)
     })
+
+    
 })
 
 function loadComicsFromAPI(query) {
@@ -22,14 +24,14 @@ function loadComicsFromAPI(query) {
         comicsInfo += `
             <li class="comic-info">
                 <a href="/api/search/${comic.id}">
-                  <img class="comic-img" src="${comic.image.icon_url}" alt="Comic Image">
+                  <img class="comic-img" src="${comic.image.super_url}" alt="Comic Image">
                   <span class="name">${comic.name}</span>
                 </a>
                 <span class="start-year">${comic.start_year}</span>
                 <span class="count-of-issues">${comic.count_of_issues}</span>
                 <span class="publisher-name">${comic.publisher.name}</span>
                 <div class="description" style="display: none">${comic.description}</div>
-                <button class="btn btn-primary" id="add-comic">Añadir comic a lista de seguimiento</button>
+                <button class="btn btn-primary" id="add-comic">Añadir cómic a lista de seguimiento</button>
                 <br>
             </li>`
       })
@@ -42,7 +44,7 @@ function loadComicsFromAPI(query) {
       // const buttons = document.querySelectorAll('#add-comic')
 
       comics.forEach((el) =>
-        el.querySelector('#add-comic').addEventListener('click', function (e) {
+        el.querySelector('#add-comic').addEventListener('click', function () {
           // console.log(e.target.parentElement.parentElement)
           let newComic = {
             name: el.querySelector('.name').innerText,
@@ -58,8 +60,15 @@ function loadComicsFromAPI(query) {
 
           axios
             .post('/api/add-comic', newComic)
-            .then(() => {
-              el.querySelector('#add-comic').style.backgroundColor = '#7CFC00'
+            .then(response => {
+              console.log(response);
+              if(response.data === 'OK')
+                el.querySelector('#add-comic').style.backgroundColor = '#7CFC00'
+              else {
+                el.querySelector('#add-comic').style.backgroundColor = 'red'
+                el.querySelector('#add-comic').innerText = 'Este cómic ya lo tienes guap@'
+              }
+              // el.querySelector('#add-comic').disabled = true
             })
             .catch((err) => console.log(err))
         })
