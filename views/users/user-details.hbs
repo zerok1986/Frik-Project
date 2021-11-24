@@ -6,6 +6,12 @@
     <a href="/users/{{user.id}}/edit">editar mi perfil</a>
     {{/if}}
 
+    {{#unless isCurrUser}}
+    <form action="/users/add-friend/{{user.id}}" method="POST">
+        <button class="btn btn-primary" id="add-friend">Añadir perfil a mi lista de amigos</button>
+    </form>
+    {{/unless}}
+
     <p>Username: {{user.username}}</p>
     <p>Nombre: {{user.name}}</p>
     <p>Bio / Descripción: {{user.description}}</p>
@@ -19,7 +25,14 @@
         </li>
     {{/each}}
     </ul>
-    <p>Amigos en la plataforma: {{user.friends}}</p>
+    <ul>
+        Amigos en la plataforma: 
+    {{#each user.friends}}
+        <li>
+            {{username}} - {{name}}
+        </li>
+    {{/each}}
+    </ul>
     <hr>
     <p>Fecha de creación del usuario: {{user.createdAt}}</p>
 

@@ -24,6 +24,7 @@ router.get('/:id', isLoggedIn, (req, res, next) => {
 
   User.findById(id)
     .populate('comics')
+    .populate('friends')
     .then((user) => {
       res.render('users/user-details', {
         user,
@@ -92,5 +93,18 @@ router.post(
       .catch((err) => console.error(err))
   }
 )
+
+router.post('/add-friend/:id', (req, res) => {
+  const currentUserId = req.session.currentUser._id
+  const { id } = req.params
+
+  User.findByIdAndUpdate(
+    currentUserId,
+    { $push: { friends: id } },
+    { new: true }
+  )
+    .then(() => res.redirect('/users'))
+    .catch((err) => console.log(err))
+})
 
 module.exports = router

@@ -1,7 +1,9 @@
+const { default: axios } = require('axios')
+
 const comicsAPI = new APIHandler()
 const comicsContainer = document.querySelector('.comics-container')
 const searchVolumes = document.getElementById('search')
-// const addComicToCollection = document.getElementById('add-comic')
+const addFriendBtn = document.getElementById('add-friend')
 
 window.addEventListener('load', () => {
   document
@@ -68,3 +70,6 @@ function loadComicsFromAPI(query) {
     .catch((err) => console.log(err))
 }
 
+// addFriendButton.addEventListener('click', function () {
+//   axios.post('/api/add-friend')
+// })

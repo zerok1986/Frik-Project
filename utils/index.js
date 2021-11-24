@@ -16,5 +16,5 @@ module.exports = {
     return [year, month, day].join('-')
   },
   isAdmin: (user) => user.role === 'ADMIN',
-  isCurrUser: (user, id) => user._id === id
+  isCurrUser: (user, id) => user._id === id,
 }

@@ -1,0 +1,34 @@
+<main class="container">
+    <h2>Lista de Reviews</h2>
+
+    <ul>
+        {{#each reviews}}
+        <li>
+            <p>Review de {{owner.username}}</p>
+            <p>Comic: {{comic.name}}</p>
+            <p>Título de la review: {{title}}</p>
+            <p>{{description}}</p>
+            <p>Puntuación: {{rating}}</p>
+            {{#if ../isCurrUserOrAdmin}}
+            <a class="btn btn-danger" href="/reviews/review-edit/{{_id}}" type="button">Editar review</a>
+            {{/if}}
+            <form action="/reviews/review-delete/{{_id}}" method="POST">
+                <button class="btn btn-danger" type="submit">Borrar review</button>
+            </form>
+        </li>
+        {{/each}}
+    </ul>
+
+    <aside>
+        <a class="btn btn-primary" href="reviews/review-create">Añadir review</a>
+    </aside>
+
+    {{#if infoMsg}}
+    <p id="logoutMessage">{{infoMsg}}</p>
+    {{/if}}
+
+    {{#if errorMsg}}
+    <p id="logoutMessage">{{errorMsg}}</p>
+    {{/if}}
+    <a href="/">Volver a la Home</a>
+</main>

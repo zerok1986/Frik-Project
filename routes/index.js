@@ -6,11 +6,11 @@ module.exports = (app) => {
   // Auth routes
   const authRoutes = require('./auth.routes')
   app.use('/', authRoutes)
-  
+
   // User routes
   const userRoutes = require('./user.routes')
   app.use('/users', userRoutes)
-  
+
   // Comic routes
   const comicRoutes = require('./comic.routes')
   app.use('/comics', comicRoutes)
@@ -19,4 +19,7 @@ module.exports = (app) => {
   const apiRoutes = require('./api.routes')
   app.use('/api', apiRoutes)
 
+  // Review routes
+  const reviewRoutes = require('./review.routes')
+  app.use('/reviews', reviewRoutes)
 }

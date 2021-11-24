@@ -38,8 +38,6 @@ router.post('/add-comic', (req, res) => {
   const id = req.session.currentUser._id
   const newComic = req.body
 
-  console.log(newComic)
-
   Comic.create(newComic)
     .then((comic) =>
       User.findByIdAndUpdate(
