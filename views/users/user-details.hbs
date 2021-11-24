@@ -11,7 +11,14 @@
     <p>Bio / Descripción: {{user.description}}</p>
     <img src={{user.profileImg}}>
     <p>Tipo de Usuario: {{user.role}}</p>
-    <p>Comics en seguimiento: {{user.comics}}</p>
+    <ul>
+        Comics en seguimiento: 
+    {{#each user.comics}}
+        <li>
+            {{name}} 
+        </li>
+    {{/each}}
+    </ul>
     <p>Amigos en la plataforma: {{user.friends}}</p>
     <hr>
     <p>Fecha de creación del usuario: {{user.createdAt}}</p>

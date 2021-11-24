@@ -67,3 +67,4 @@ function loadComicsFromAPI(query) {
     })
     .catch((err) => console.log(err))
 }
+

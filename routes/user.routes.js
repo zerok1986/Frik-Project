@@ -23,6 +23,7 @@ router.get('/:id', isLoggedIn, (req, res, next) => {
   }
 
   User.findById(id)
+    .populate('comics')
     .then((user) => {
       res.render('users/user-details', {
         user,

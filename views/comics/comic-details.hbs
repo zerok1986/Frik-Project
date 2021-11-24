@@ -1,17 +1,19 @@
-<img class="comic-img" src="{{comic.data.results.image.super_url}}" alt="Image SuperURL">
-<div>
-    <h1 class="name">{{comic.data.results.name}}</h1>
+<div id="comic-details">
+    <img class="comic-img" src="{{comic.data.results.image.super_url}}" alt="Image SuperURL">
     <div>
-        <span> 
-            Number of issues: <span class="count-of-issues">{{comic.data.results.count_of_issues}}</span>
-        </span>
-        <span> 
-            Publisher: <span class="publisher-name">{{comic.data.results.publisher.name}}</span>
-        </span>
-        <span>
-            (<span class="start-year">{{comic.data.results.start_year}}</span>)
-        </span>
+        <h1 class="name">{{comic.data.results.name}}</h1>
+        <button class="btn btn-primary" id="add-comic">Añadir comic a lista de seguimiento</button>
+        <div>
+            <span> 
+                Number of issues: <span class="count-of-issues">{{comic.data.results.count_of_issues}}</span>
+            </span>
+            <span> 
+                Publisher: <span class="publisher-name">{{comic.data.results.publisher.name}}</span>
+            </span>
+            <span>
+                (<span class="start-year">{{comic.data.results.start_year}}</span>)
+            </span>
+        </div>
+        <p class="description">{{{comic.data.results.description}}}</p>
     </div>
-    <p class="description">{{comic.data.results.description}}</p>
-     
 </div>
