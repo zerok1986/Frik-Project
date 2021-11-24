@@ -8,14 +8,14 @@ router.post('/registro', (req, res) => {
   const { username, userPwd } = req.body
 
   if (userPwd.length === 0 || username.length === 0) {
-    res.render('auth/signup-form', { errorMsg: 'Rellena todos los campos' })
+    res.render('auth/signup-form', { errorMsg: 'Please fill all the fields' })
     return
   }
 
   User.findOne({ username })
     .then((user) => {
       if (user) {
-        res.render('auth/signup', { errorMsg: 'Usuario ya registrado' })
+        res.render('auth/signup', { errorMsg: 'This user is already registered' })
         return
       }
 
@@ -36,24 +36,24 @@ router.post('/iniciar-sesion', (req, res) => {
   const { username, userPwd } = req.body
 
   if (userPwd.length === 0 || username.length === 0) {
-    res.render('auth/login', { errorMsg: 'Rellena los campos' })
+    res.render('auth/login', { errorMsg: 'Please fill all the fields' })
     return
   }
 
   User.findOne({ username })
     .then((user) => {
       if (!user) {
-        res.render('auth/login', { errorMsg: 'Usuario no reconocido' })
+        res.render('auth/login', { errorMsg: 'Unknown user' })
         return
       }
 
       if (bcrypt.compareSync(userPwd, user.password) === false) {
-        res.render('auth/login', { errorMsg: 'Contraseña incorrecta' })
+        res.render('auth/login', { errorMsg: 'Wrong password' })
         return
       }
 
       req.session.currentUser = user
-      res.render('index', { loginMsg: 'Te has logueado correctamente' })
+      res.render('index', { loginMsg: 'Login successful' })
     })
     .catch((err) => console.log(err))
 })
@@ -61,7 +61,7 @@ router.post('/iniciar-sesion', (req, res) => {
 // Logout
 router.get('/cerrar-sesion', (req, res) => {
   req.session.destroy(() =>
-    res.render('index', { logoutMsg: 'Te has deslogueado correctamente' })
+    res.render('index', { logoutMsg: 'Logout successful' })
   )
 })
 
