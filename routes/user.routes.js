@@ -94,17 +94,22 @@ router.post(
   }
 )
 
-router.post('/add-friend/:id', (req, res) => {
-  const currentUserId = req.session.currentUser._id
-  const { id } = req.params
+router.post(
+  '/add-friend/:id',
+  isLoggedIn,
+  checkRoles('USER', 'ADMIN'),
+  (req, res) => {
+    const currentUserId = req.session.currentUser._id
+    const { id } = req.params
 
-  User.findByIdAndUpdate(
-    currentUserId,
-    { $push: { friends: id } },
-    { new: true }
-  )
-    .then(() => res.redirect('/users'))
-    .catch((err) => console.log(err))
-})
+    User.findByIdAndUpdate(
+      currentUserId,
+      { $push: { friends: id } },
+      { new: true }
+    )
+      .then(() => res.redirect('/users'))
+      .catch((err) => console.log(err))
+  }
+)
 
 module.exports = router

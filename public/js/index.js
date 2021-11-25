@@ -76,7 +76,3 @@ function loadComicsFromAPI(query) {
     })
     .catch((err) => console.log(err))
 }
-
-// addFriendButton.addEventListener('click', function () {
-//   axios.post('/api/add-friend')
-// })

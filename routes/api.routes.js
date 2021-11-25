@@ -4,13 +4,12 @@ const Comic = require('../models/Comic.model')
 const {
   isLoggedIn,
   checkRoles,
-  checkIfCurrUserOrAdmin,
 } = require('./../middlewares')
 const router = require('express').Router()
 const API_KEY = process.env.API_KEY
 
 //Search
-router.post('/search', (req, res) => {
+router.post('/search', isLoggedIn, checkRoles('ADMIN', 'USER'), (req, res) => {
   const { query } = req.body
   axios
     .get(
@@ -23,7 +22,7 @@ router.post('/search', (req, res) => {
 })
 
 //Details
-router.get('/search/:id', isLoggedIn, (req, res) => {
+router.get('/search/:id', isLoggedIn, checkRoles('ADMIN', 'USER'), (req, res) => {
   const { id } = req.params
 
   axios
@@ -38,7 +37,7 @@ router.get('/search/:id', isLoggedIn, (req, res) => {
 })
 
 //Add comic to user profile in details page
-router.post('/search/:id', isLoggedIn, (req, res) => {
+router.post('/search/:id', isLoggedIn, checkRoles('ADMIN', 'USER'), (req, res) => {
   const { id } = req.params
   const userId = req.session.currentUser._id
 
@@ -86,7 +85,7 @@ router.post('/search/:id', isLoggedIn, (req, res) => {
 })
 
 //Add comic to user profile in comic list
-router.post('/add-comic', (req, res) => {
+router.post('/add-comic', isLoggedIn, checkRoles('ADMIN', 'USER'), (req, res) => {
   const id = req.session.currentUser._id
   const newComic = req.body
 

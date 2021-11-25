@@ -15,7 +15,9 @@ router.post('/registro', (req, res) => {
   User.findOne({ username })
     .then((user) => {
       if (user) {
-        res.render('auth/signup', { errorMsg: 'This user is already registered' })
+        res.render('auth/signup', {
+          errorMsg: 'This user is already registered',
+        })
         return
       }
 
