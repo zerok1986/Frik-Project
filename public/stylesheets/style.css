@@ -226,6 +226,7 @@ label {
 }
 
 .user-details-box-body {
+  font-size: 20px;
   width: 45%;
 }
 
@@ -240,6 +241,7 @@ label {
 
 .buttons-bar {
   display: flex;
+  justify-content: center;
 }
 
 .margin-button {
@@ -249,6 +251,10 @@ label {
 .user-img-details {
   width: 45%;
   height: 100%;
+}
+
+.user-details-comics {
+  font-size: 17px;
 }
 
 @keyframes showFromBottom {

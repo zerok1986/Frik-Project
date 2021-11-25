@@ -1,24 +1,23 @@
 <main class="container">
-    {{#if isCurrUser}}
-    <a class="btn btn-dark mt-3" href="/users/{{user.id}}/edit">Edit Profile</a>
-    {{/if}}
-    {{#unless isCurrUser}}
-    <form action="/users/add-friend/{{user.id}}" method="POST">
-        <button class="btn btn-dark" id="add-friend">Add user to friend's list</button>
-    </form>
-    {{/unless}}
-
     <div class="user-details-box">
         <img class="user-img-details" src={{user.profileImg}}>
         <div class="user-details-box-body">
-            <p><b>Username: </b>{{user.username}}</p>
-            <p><b>Name: </b>{{user.name}}</p>
-            <p><b>Bio / Description: </b>{{user.description}}</p>
-            <p><b>Role: </b>{{user.role}}</p>
+            <p class="details-title">{{user.username}}</p>
+            {{#if isCurrUser}}
+            <a class="btn btn-dark mt-3" href="/users/{{user.id}}/edit">Edit Profile</a>
+            {{/if}}
+            {{#unless isCurrUser}}
+            <form action="/users/add-friend/{{user.id}}" method="POST">
+                <button class="btn btn-dark" id="add-friend">Add user to friend's list</button>
+            </form>
+            {{/unless}}
+            <p>Name: <span class="bold">{{user.name}}</span></p>
+            <p>Bio / Description: <span class="bold">{{user.description}}</span></p>
+            <p>Role: <span class="bold">{{user.role}}</span</p>
             <ul>
-                Favorite Comics: 
+                <span class="bold">Favorite Comics:</span> 
             {{#each user.comics}}
-                <li>
+                <li class="user-details-comics">
                     <img src="{{comicImg}}" class="comic-img-icon" alt="Image"> {{name}} ({{issues}} issues) {{publisher}}
                 </li>
             {{/each}}
@@ -27,12 +26,12 @@
                 <p>Friends: </p>
             {{#each user.friends}}
                 <li>
-                    {{username}} - {{name}}
+                    <img src="{{profileImg}}" class="comic-img-icon" alt="Image">  {{name}}
                 </li>
             {{/each}}
             </ul>
             <hr>
-            <p>User sign up date: {{user.createdAt}}</p>
+            <small>User sign up date: {{user.createdAt}}</small>
         </div>
     </div>
     <div class="buttons-bar">
