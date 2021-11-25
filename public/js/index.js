@@ -1,4 +1,3 @@
-const { default: axios } = require('axios')
 
 const comicsAPI = new APIHandler()
 const comicsContainer = document.querySelector('.comics-container')
