@@ -1,11 +1,15 @@
 <main class="container">
-    <h2>Users</h2>
-
-    <ul>
+    <ul class="user-list">
         {{#each users}}
         <li>
-            {{username}}
-            <a href="/users/{{id}}">Check user profile</a>
+            <div class="user-list-box">
+                <img class="profile-img-small" src="{{profileImg}}" alt="Profile Image">
+                <div class="user-list-box-body">
+                    <p>Name: <span class="bold">{{name}}</span></p>
+                    <p>Username: <span class="bold">{{username}}</span></p>
+                    <a href="/users/{{id}}" class="btn btn-dark check-profile" type="button">Check user profile</a>
+                </div>
+            </div>
         </li>
         {{/each}}
     </ul>

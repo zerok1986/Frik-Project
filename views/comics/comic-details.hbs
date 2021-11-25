@@ -1,21 +1,21 @@
 <div id="comic-details">
     <img class="comic-img comic-img-big" src="{{comic.data.results.image.super_url}}" alt="Image SuperURL">
-    <div>
-        <h1 class="name">{{comic.data.results.name}}</h1>
+    <div class="details-body">
+        <h2 class="name details-title">{{comic.data.results.name}}</h2>
         <form action="/api/search/{{comic.data.results.id}}" method="POST">
             <input hidden name='comicImg' value="{{comic.data.results.image.super_url}}">
             <input hidden name='name' value="{{comic.data.results.name}}">
             <input hidden name='description' value="{{comic.data.results.description}}">
             <input hidden name='issues' value="{{comic.data.results.count_of_issues}}">
             <input hidden name='publisher' value="{{comic.data.results.publisher.name}}">
-            <button type="submit" class="btn btn-dark" id="add-comic">Añadir comic a lista de seguimiento</button>
+            <button type="submit" class="btn btn-dark" id="add-comic">Add to favorites</button>
         </form>
         <div>
             <span> 
                 Number of issues: <span class="count-of-issues">{{comic.data.results.count_of_issues}}</span>
-            </span>
+            </span> - 
             <span> 
-                Publisher: <span class="publisher-name">{{comic.data.results.publisher.name}}</span>
+                Published by: <span class="publisher-name">{{comic.data.results.publisher.name}}</span>
             </span>
             <span>
                 (<span class="start-year">{{comic.data.results.start_year}}</span>)
