@@ -3,25 +3,25 @@
 
     <form action="/reviews/review-create" method="POST">
         <label for="title">
-            Titulo de la Review
+            Review Title
             <input name="title" id="title" type="text">
         </label>
         </br>
     
         <label for="description">
-            Descripción <input name="description" type="text">
+            Description <input name="description" type="text">
         </label>
         </br>
     
         <label for="rating">
-            Puntuación <input name="rating" type="number">
+            Rating <input name="rating" type="number">
         </label>
         </br>
     
         <label for="comic">
-            Comic de la review 
+            Comic
             <select name="comic" class="form-control" id="comic">
-                <option>Seleccionar</option>
+                <option>Select</option>
                 {{#each comics}}
                 
                 <option value="{{id}}">{{name}}</option>
@@ -30,6 +30,6 @@
             </select>
         </label>
     
-        <button type="submit">Añadir review</button>
+        <button type="submit">Add review</button>
     </form>
 </main>

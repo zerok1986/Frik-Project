@@ -7,6 +7,9 @@ const {
   checkIfCurrUserOrAdmin,
 } = require('./../middlewares')
 
+//Show comic search page
 router.get('/', isLoggedIn, (req, res) => res.render('comics/comic-list'))
+
+
 
 module.exports = router

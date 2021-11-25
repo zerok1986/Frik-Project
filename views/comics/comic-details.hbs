@@ -3,11 +3,11 @@
     <div>
         <h1 class="name">{{comic.data.results.name}}</h1>
         <form action="/api/search/{{comic.data.results.id}}" method="POST">
-            <input hidden name='comicImg' value={{comic.data.results.image.super_url}}>
-            <input hidden name='name' value={{comic.data.results.name}}>
-            <input hidden name='description' value={{{comic.data.results.description}}}>
-            <input hidden name='issues' value={{comic.data.results.count_of_issues}}>
-            <input hidden name='publisher' value={{comic.data.results.publisher.name}}>
+            <input hidden name='comicImg' value="{{comic.data.results.image.super_url}}">
+            <input hidden name='name' value="{{comic.data.results.name}}">
+            <input hidden name='description' value="{{comic.data.results.description}}">
+            <input hidden name='issues' value="{{comic.data.results.count_of_issues}}">
+            <input hidden name='publisher' value="{{comic.data.results.publisher.name}}">
             <button type="submit" class="btn btn-primary" id="add-comic">Añadir comic a lista de seguimiento</button>
         </form>
         <div>

@@ -18,7 +18,7 @@ router.get('/:id', isLoggedIn, (req, res, next) => {
 
   if (!checkMongoID(id)) {
     res.render('users/user-details', {
-      errorMessage: 'Este usuario no existe en la BBDD',
+      errorMessage: 'Unknown user',
     })
   }
 

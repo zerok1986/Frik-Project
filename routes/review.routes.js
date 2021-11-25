@@ -53,12 +53,12 @@ router.post('/review-delete/:id', isLoggedIn, (req, res) => {
       ) {
         Review.findByIdAndRemove(id)
           .then(() =>
-            res.render('reviews/review-list', { infoMsg: 'Review borrada' })
+            res.render('reviews/review-list', { infoMsg: 'Review deleted successfully' })
           )
           .catch((err) => console.log(err))
       } else {
         res.render('reviews/review-list', {
-          errorMsg: 'No tienes permisos para borrar esta review',
+          errorMsg: `You don't have permissions to delete this review`,
         })
       }
     })
