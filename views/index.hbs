@@ -1,16 +1,27 @@
-<div class="container">
+<div class="container index">
 
   <h1>🦸 {{siteTitle}} 🦸‍♀️</h1>
-  <hr>
-  <p>Frik - Track comics you’ve read.
-Save those you want to.
-Tell your friends what’s good! 🦸</p>
 
-  <a href="/users">User's list</a>
+  <div class="slogan-box">
+    <p class="slogan">Track comics you’ve read.</p>
+    <p class="slogan">Save those you want to.</p>
+    <p class="slogan">Tell your friends what’s good!</p>
+  </div>
+
+  <div class="buttons-box">
+    <form action="/registro" method="POST">
+        <button type="submit" class="btn btn-dark btn-block index-btn">Sign up</button>
+    </form>
+
+    <form action="/iniciar-sesion" method="POST">
+        <button type="submit" class="btn btn-dark btn-block index-btn">Log in</button>
+    </form>
+  </div>
+  {{!-- <a href="/users">User's list</a>
   <br>
   <a href="/comics">Comic search engine</a>
   <br>
-  <a href="/reviews">Reviews page</a>
+  <a href="/reviews">Reviews page</a> --}}
 
   
   
