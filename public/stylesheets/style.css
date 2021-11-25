@@ -1,6 +1,7 @@
 body {
   font-weight: 200;
   font-family: sans-serif;
+  margin-top: 100px;
 }
 
 h1,
@@ -19,6 +20,7 @@ li {
 
 .navbar {
   margin-bottom: 80px;
+  height: 50px;
 }
 
 .comic-img-big {
@@ -68,5 +70,3 @@ li {
     bottom: -50px;
   }
 }
-
-
