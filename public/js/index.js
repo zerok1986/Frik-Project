@@ -22,16 +22,27 @@ function loadComicsFromAPI(query) {
       res.data?.forEach((comic) => {
         comicsInfo += `
             <li class="comic-info">
-                <a href="/api/search/${comic.id}">
-                  <img class="comic-img comic-img-small" src="${comic.image.super_url}" alt="Comic Image">
-                  <span class="name">${comic.name}</span>
-                </a>
-                <span class="start-year">${comic.start_year}</span>
-                <span class="count-of-issues">${comic.count_of_issues}</span>
-                <span class="publisher-name">${comic.publisher.name}</span>
-                <div class="description" style="display: none">${comic.description}</div>
-                <button class="btn btn-primary" id="add-comic">Add to favorites</button>
-                <br>
+              <a id="details-link" href="/api/search/${comic.id}">
+                <img class="comic-img comic-img-small" src="${comic.image.super_url}" alt="Comic Image">
+              </a>
+              <div class="list-add-box">
+                <div>
+                  <a id="details-link" href="/api/search/${comic.id}">
+                    <p class="name list-name">${comic.name}</p>
+                  </a>
+                  <span> 
+                    Number of issues: <span class="start-year">${comic.start_year}</span>
+                  </span>
+                  <span>  
+                    (<span class="count-of-issues">${comic.count_of_issues}</span> Issues)
+                  </span>
+                  <span> 
+                    Publisher: <span class="publisher-name">${comic.publisher.name}</span>
+                  </span>
+                  <div class="description" style="display: none">${comic.description}</div>
+                </div>
+                <button class="btn btn-dark" id="add-comic">Add to favorites</button>
+              </div>
             </li>`
       })
       comicsContainer.innerHTML = comicsInfo
