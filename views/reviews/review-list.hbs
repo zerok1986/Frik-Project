@@ -4,23 +4,23 @@
     <ul>
         {{#each reviews}}
         <li>
-            <p>Review de {{owner.username}}</p>
+            <p>Review by {{owner.username}}</p>
             <p>Comic: {{comic.name}}</p>
-            <p>Título de la review: {{title}}</p>
+            <p>Review Title: {{title}}</p>
             <p>{{description}}</p>
-            <p>Puntuación: {{rating}}</p>
+            <p>Rating: {{rating}}</p>
             {{#if ../isCurrUserOrAdmin}}
-            <a class="btn btn-danger" href="/reviews/review-edit/{{_id}}" type="button">Editar review</a>
+            <a class="btn btn-danger" href="/reviews/review-edit/{{_id}}" type="button">Edit review</a>
             {{/if}}
             <form action="/reviews/review-delete/{{_id}}" method="POST">
-                <button class="btn btn-danger" type="submit">Borrar review</button>
+                <button class="btn btn-danger" type="submit">Delete review</button>
             </form>
         </li>
         {{/each}}
     </ul>
 
     <aside>
-        <a class="btn btn-primary" href="reviews/review-create">Añadir review</a>
+        <a class="btn btn-primary" href="reviews/review-create">Add review</a>
     </aside>
 
     {{#if infoMsg}}

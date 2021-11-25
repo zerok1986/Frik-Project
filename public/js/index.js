@@ -62,9 +62,9 @@ function loadComicsFromAPI(query) {
             .then((response) => {
               console.log(response)
               if (response.data === 'OK')
-                el.querySelector('#add-comic').style.backgroundColor = '#7CFC00'
+                el.querySelector('#add-comic').style.backgroundColor = '#73db5e'
               else {
-                el.querySelector('#add-comic').style.backgroundColor = 'red'
+                el.querySelector('#add-comic').style.backgroundColor = '#ffcaca'
                 el.querySelector('#add-comic').innerText =
                   'This comic is already in your favorites'
               }

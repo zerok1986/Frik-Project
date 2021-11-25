@@ -53,27 +53,26 @@ router.post(
   (req, res) => {
     const { id } = req.params
 
-    Review.findById(id)
-      .populate('owner')
-      .then((review) => {
-        if (
-          review.owner.username === req.session.currentUser.username ||
-          req.session.currentUser.role === 'ADMIN'
-        ) {
-          Review.findByIdAndRemove(id)
-            .then(() =>
-              res.render('reviews/review-list', { infoMsg: 'Review borrada' })
-            )
-            .catch((err) => console.log(err))
-        } else {
-          res.render('reviews/review-list', {
-            errorMsg: 'No tienes permisos para borrar esta review',
-          })
-        }
-      })
-      .catch((err) => console.log(err))
-  }
-)
+  Review.findById(id)
+    .populate('owner')
+    .then((review) => {
+      if (
+        review.owner.username === req.session.currentUser.username ||
+        req.session.currentUser.role === 'ADMIN'
+      ) {
+        Review.findByIdAndRemove(id)
+          .then(() =>
+            res.render('reviews/review-list', { infoMsg: 'Review deleted successfully' })
+          )
+          .catch((err) => console.log(err))
+      } else {
+        res.render('reviews/review-list', {
+          errorMsg: `You don't have permissions to delete this review`,
+        })
+      }
+    })
+    .catch((err) => console.log(err))
+})
 
 router.get(
   '/review-edit/:id',

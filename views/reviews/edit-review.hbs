@@ -1,25 +1,25 @@
 <main>
-    <h3>Editar Review</h3>
+    <h3>Edit Review</h3>
 
     <form action="/reviews/review-edit/{{review.id}}" method="POST">
         <label for="title">
-            Titulo de la Review
+            Review Title
             <input name="title" id="title" type="text" value="{{review.title}}">
         </label>
         </br>
 
         <label for="description">
-            Descripción <input name="description" type="text" value="{{review.description}}">
+            Description <input name="description" type="text" value="{{review.description}}">
         </label>
         </br>
 
         <label for="rating">
-            Puntuación <input name="rating" type="number" value="{{review.rating}}">
+            Rating <input name="rating" type="number" value="{{review.rating}}">
         </label>
         </br>
 
         <label for="comic">
-            Comic de la review
+            Comic
             <select name="comic" class="form-control" id="comic" value="{{review.comic._id}}">
                 <option value="{{review.comic._id}}">{{review.comic.name}}</option>
                 {{#each thisUserComics.comics}}
