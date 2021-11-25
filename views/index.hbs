@@ -9,22 +9,10 @@
   </div>
 
   <div class="buttons-box">
-    <form action="/registro" method="POST">
-        <button type="submit" class="btn btn-dark btn-block index-btn">Sign up</button>
-    </form>
-
-    <form action="/iniciar-sesion" method="POST">
-        <button type="submit" class="btn btn-dark btn-block index-btn">Log in</button>
-    </form>
+    <a href="/registro" class="btn btn-dark index-btn" type="button">Sign up</a>
+    <a href="/iniciar-sesion" class="btn btn-dark index-btn" type="button">Log in</a>
   </div>
-  {{!-- <a href="/users">User's list</a>
-  <br>
-  <a href="/comics">Comic search engine</a>
-  <br>
-  <a href="/reviews">Reviews page</a> --}}
 
-  
-  
   {{#if loginMsg}}
   <p id="logoutMessage">{{loginMsg}}</p>
   {{/if}}
