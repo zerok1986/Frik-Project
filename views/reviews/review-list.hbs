@@ -10,17 +10,17 @@
             {{#each reviews}}
             <div id="review-cards" class="col-4">
                 <div class="card h-100">
-                    <p class="card-header">Review by {{owner.username}}</p>
+                    <p class="card-header">Review by <b>{{owner.username}}</b></p>
                     <div class="card-body">
-                        <p class="card-text">Comic: {{comic.name}}</p>
-                        <p class="card-text">Review Title: {{title}}</p>
-                        <p class="card-text">{{description}}</p>
-                        <p class="card-text">Rating: {{rating}}</p>
+                        <p class="card-text"><b>Comic: </b>{{comic.name}}</p>
+                        <p class="card-text"><b>Review Title: </b>{{title}}</p>
+                        <p class="card-text"><b>Description: </b>{{description}}</p>
+                        <p class="card-text"><b>Rating: </b>{{rating}}</p>
                         {{#if ../isCurrUserOrAdmin}}
-                        <a class="btn btn-danger" href="/reviews/review-edit/{{_id}}" type="button">Edit review</a>
-                        <form action="/reviews/review-delete/{{_id}}" method="POST">
-                            <button class="btn btn-danger" type="submit">Delete review</button>
-                        </form>
+                            <a class="btn btn-danger" href="/reviews/review-edit/{{_id}}" type="button">Edit review</a>
+                            <form action="/reviews/review-delete/{{_id}}" method="POST">
+                                <button class="btn btn-danger" type="submit">Delete review</button>
+                            </form>
                         {{/if}}
                     </div>
                 </div>

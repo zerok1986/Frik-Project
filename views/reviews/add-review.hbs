@@ -1,35 +1,28 @@
-<main>
+<main class="container">
     <h3>Añadir Review</h3>
 
     <form action="/reviews/review-create" method="POST">
-        <label for="title">
-            Review Title
-            <input name="title" id="title" type="text">
-        </label>
-        </br>
-    
-        <label for="description">
-            Description <textarea name="description" type="text"></textarea>
-        </label>
-        </br>
-    
-        <label for="rating">
-            Rating <input name="rating" type="number">
-        </label>
-        </br>
-    
-        <label for="comic">
-            Comic
+        <div>
+            <label for="title" class="form-label">Review Title</label>
+            <input class="form-control" name="title" id="title" type="text">
+        </div>
+        <div>
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" name="description" type="text" rows="2"></textarea>
+        </div>
+        <div>
+            <label for="rating" class="form-label">Rating</label>
+            <input class="form-control" name="rating" type="number">
+        </div>
+        <div>
+            <label for="comic" class="form-label">Comic</label> 
             <select name="comic" class="form-control" id="comic">
                 <option>Select</option>
                 {{#each comics}}
-                
-                <option value="{{id}}">{{name}}</option>
-                
+                    <option value="{{id}}">{{name}}</option>
                 {{/each}}
-            </select>
-        </label>
-    
-        <button type="submit">Add review</button>
+            </select> 
+        </div>
+        <button class="btn btn-dark mt-3" type="submit">Add review</button>
     </form>
 </main>

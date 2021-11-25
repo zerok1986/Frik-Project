@@ -1,50 +1,47 @@
 <main class="container">
-    <h2>{{user.username}} - User Details</h2>
-    <hr>
-
     {{#if isCurrUser}}
-    <a href="/users/{{user.id}}/edit">Edit Profile</a>
+    <a class="btn btn-dark mt-3" href="/users/{{user.id}}/edit">Edit Profile</a>
     {{/if}}
-
     {{#unless isCurrUser}}
     <form action="/users/add-friend/{{user.id}}" method="POST">
-        <button class="btn btn-primary" id="add-friend">Add user to friend's list</button>
+        <button class="btn btn-dark" id="add-friend">Add user to friend's list</button>
     </form>
     {{/unless}}
 
-    <p>Username: {{user.username}}</p>
-    <p>Name: {{user.name}}</p>
-    <p>Bio / Description: {{user.description}}</p>
-    <img src={{user.profileImg}}>
-    <p>Role: {{user.role}}</p>
-    <ul>
-        Favorite Comics: 
-    {{#each user.comics}}
-        <li>
-            <img src="{{comicImg}}" class="comic-img-small" alt="Image"> {{name}} ({{issues}} issues) {{publisher}}
-        </li>
-    {{/each}}
-    </ul>
-    <ul>
-        <p>Friends: </p>
-    {{#each user.friends}}
-        <li>
-            {{username}} - {{name}}
-        </li>
-    {{/each}}
-    </ul>
-    <hr>
-    <p>User sign up date: {{user.createdAt}}</p>
-
-    {{#if isAdmin}}
-    <div>
-        <a href="/users/{{user.id}}/edit">Edit</a>
-        
-        <form action="/users/{{user.id}}/delete" method="POST">
-            <button type="submit">Delete</button>
-        </form>
+    <div class="user-details-box">
+        <img class="user-img-details" src={{user.profileImg}}>
+        <div class="user-details-box-body">
+            <p><b>Username: </b>{{user.username}}</p>
+            <p><b>Name: </b>{{user.name}}</p>
+            <p><b>Bio / Description: </b>{{user.description}}</p>
+            <p><b>Role: </b>{{user.role}}</p>
+            <ul>
+                Favorite Comics: 
+            {{#each user.comics}}
+                <li>
+                    <img src="{{comicImg}}" class="comic-img-icon" alt="Image"> {{name}} ({{issues}} issues) {{publisher}}
+                </li>
+            {{/each}}
+            </ul>
+            <ul>
+                <p>Friends: </p>
+            {{#each user.friends}}
+                <li>
+                    {{username}} - {{name}}
+                </li>
+            {{/each}}
+            </ul>
+            <hr>
+            <p>User sign up date: {{user.createdAt}}</p>
+        </div>
     </div>
+    <div class="buttons-bar">
+    {{#if isAdmin}}
+        <a class="btn btn-dark mt-3 margin-button" href="/users/{{user.id}}/edit">Edit</a>
+        <form action="/users/{{user.id}}/delete" method="POST">
+            <button class="btn btn-dark mt-3 margin-button" type="submit">Delete</button>
+        </form>
     {{/if}}
-
-    <a href="/">Back to Homepage</a>
+    <a class="btn btn-dark mt-3 margin-button" href="/">Back to Homepage</a>
+    </div>
 </main>

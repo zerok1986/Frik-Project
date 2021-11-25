@@ -1,14 +1,14 @@
 body {
-  font-weight: 200;
+  font-weight: 400;
   font-family: 'Roboto', sans-serif;
-  margin-top: 100px;
+  margin: 80px 0;
   height: 100%;
   background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0.7)
-  ),
-  url(/images/index.jpg) no-repeat center center fixed; 
+      to bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url(/images/index.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -34,6 +34,12 @@ ul {
 
 li {
   margin: 10px auto;
+}
+
+label {
+  font-weight: bolder;
+  margin-top: 5px;
+  margin-bottom: 0 !important;
 }
 
 .navbar {
@@ -131,6 +137,38 @@ li {
   padding: 5px;
   text-align: center;
   animation: showFromBottom 6s forwards;
+}
+
+.user-details-box {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.user-details-box-body {
+  width: 45%;
+}
+
+.user-details-box-body ul {
+  margin: 0;
+  padding: 0;
+}
+
+.comic-img-icon {
+  width: 50px;
+}
+
+.buttons-bar {
+  display: flex;
+}
+
+.margin-button {
+  margin: 0 5px;
+}
+
+.user-img-details {
+  width: 45%;
+  height: 100%;
 }
 
 @keyframes showFromBottom {

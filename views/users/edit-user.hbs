@@ -1,40 +1,40 @@
 <main>
-    <article>
+    <article class="container">
         <h2>Edit User</h2>
 
         <form action="/users/{{user.id}}/edit" method="POST">
             <aside>
-                <label for="user-username">Username</label>
+                <label for="user-username" class="form-label">Username</label>
                 <input type="text" , name="username" id="user-username" value="{{user.username}}">
             </aside>
 
             <aside>
-                <label for="user-name">Name</label>
-                <input type="text" , name="name" id="user-name" value="{{user.name}}">
+                <label for="user-name" class="form-label">Name</label>
+                <input class="form-control" type="text" , name="name" id="user-name" value="{{user.name}}">
             </aside>
 
             <aside>
-                <label for="user-description">Description</label>
-                <input type="text" , name="description" id="user-description" value="{{user.description}}">
+                <label for="user-description" class="form-label">Description</label>
+                <input class="form-control" type="text" , name="description" id="user-description" value="{{user.description}}">
             </aside>
 
             <aside>
-                <label for="user-image">Profile Image</label>
-                <input type="text" , name="profileImg" id="user-image" value="{{user.profileImg}}">
+                <label for="user-image" class="form-label">Profile Image</label>
+                <input class="form-control" type="text" , name="profileImg" id="user-image" value="{{user.profileImg}}">
             </aside>
 
             {{#if isAdmin}}
             <aside>
-                <label for="user-role">Role</label>
-                <input type="text" , name="role" id="user-role" value="{{user.role}}">
+                <label for="user-role" class="form-label">Role</label>
+                <input class="form-control" type="text" , name="role" id="user-role" value="{{user.role}}">
             </aside>
             {{/if}}
 
-            <button type="submit">Submit changes</button>
+            <button class="btn btn-dark mt-3" type="submit">Submit changes</button>
 
         </form>
 
-        <a href="/">Back to Home Page</a>
+        <a class="btn btn-dark mt-3" href="/">Back to Home Page</a>
         <p>{{errorMsg}}</p>
     </article>
 </main>
