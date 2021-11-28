@@ -3,12 +3,8 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 80px 0;
   height: 100%;
-  background: linear-gradient(
-    to bottom,
-    #ffffffb3,
-    rgba(255, 255, 255, 0.7)
-  ),
-  url(/images/index.jpg) no-repeat center center fixed; 
+  background: linear-gradient(to bottom, #ffffffb3, rgba(255, 255, 255, 0.7)),
+    url(/images/index.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -45,7 +41,7 @@ label {
 .navbar {
   background-color: rgb(206, 83, 89) !important;
   margin-bottom: 80px;
-  height: 50px;
+  min-height: 30px;
 }
 
 .slogan {
@@ -146,7 +142,7 @@ label {
   font-size: 20px;
 }
 
-.details-body > div > span > span{
+.details-body > div > span > span {
   font-weight: 500;
 }
 
@@ -155,7 +151,6 @@ label {
   height: 100%;
   border: 1px solid black;
   border-radius: 4px;
-
 }
 
 .user-list {
@@ -185,7 +180,7 @@ label {
   width: 155px;
 }
 
-.profile-img-small{
+.profile-img-small {
   width: 150px;
   height: 150px;
   object-fit: cover;
